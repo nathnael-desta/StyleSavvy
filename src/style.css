@@ -81,6 +81,7 @@ a {
     fill: white;
     transform: rotate(90deg);
     right: 20px;
+    cursor: pointer;
 }
 
 .navs {
@@ -1627,4 +1628,21 @@ textarea {
     .contact-send {
       margin: 0;
     }
+}
+
+
+
+.nav-container {
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+.popular {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.home-container {
+    position: relative !important;
+    z-index: 1 !important;
 }

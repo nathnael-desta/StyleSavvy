@@ -12,7 +12,8 @@
                     exact-active-class="normal"
                     :to="`/`"
                     :class="{ chosenPage: pageNo == 0 }"
-                    @click="pageNo = 0"
+                    @click="linkClickAction(0)"
+                    
                     >Home</router-link
                 >
                 <router-link
@@ -21,7 +22,7 @@
                     exact-active-class="normal"
                     :to="`/products`"
                     :class="{ chosenPage: pageNo == 1 }"
-                    @click="pageNo = 1"
+                    @click="linkClickAction(0)"
                     >Products</router-link
                 >
                 <router-link
@@ -30,13 +31,13 @@
                     exact-active-class="normal"
                     :to="`/contacts`"
                     :class="{ chosenPage: pageNo == 2 }"
-                    @click="pageNo = 2"
+                    @click="linkClickAction(0)"
                     >Contact Us</router-link
                 >
             </div>
             <div
                 class="cart"
-                @click="cartOpen = true"
+                @click="cartClickAction()"
             >
                 <img
                     src="../assets/cart.svg"
@@ -204,6 +205,16 @@ let cartOpen = inject("cartOpen");
 let allCart = reactive(data.getAllCart());
 
 let total = ref(totalAmount());
+
+function cartClickAction() {
+    cartOpen.value = true;
+    dropdown.value = false;
+}
+
+function linkClickAction(index) {
+    pageNo.value = index;
+    dropdown.value = false 
+}
 
 function chosenImg(item) {
     console.log(
